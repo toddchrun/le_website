@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //initializing express session
 app.use(session({
-  secret: "buddyisastupiddumbass,stupid,stupid",
+  secret: "v",
   resave: false,
   saveUninitialized: false,
 }));
@@ -31,7 +31,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //connect to mongodb
-mongoose.connect("mongodb://localhost:27017/userDB", { useUnifiedTopology: true, useNewUrlParser: true });
+mongoose.connect("mongodb://localhost:27017/liveempoweredDB", { useUnifiedTopology: true, useNewUrlParser: true });
 mongoose.set("useCreateIndex", true);
 
 //mongoose schemas
