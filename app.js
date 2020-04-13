@@ -47,6 +47,12 @@ const userSchema = new mongoose.Schema ({
   },
   secret: {
     type: String,
+  },
+  signUpDate: {
+    type: Date,
+  },
+  adminRights: {
+    type: Boolean,
   }
 });
 
@@ -132,6 +138,14 @@ app.get("/submit", function(req, res) {
   }
 });
 
+app.get("/profile", function(req, res) {
+  if (req.isAuthenticated()) {
+    res.render("profile");
+  } else {
+    res.redirect("/login");
+  }
+});
+
 //POST requests
 app.post("/register", function(req, res) {
 
@@ -161,7 +175,7 @@ app.post("/login", function(req, res) {
       res.redirect("/login");
     } else {
       passport.authenticate("local")(req, res, function() {
-        res.redirect("/secrets");
+        res.redirect("/profile");
       });
     }
   });
