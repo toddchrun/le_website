@@ -1,1 +1,1 @@
-liveempowered fitness challenge stuff
+Live Empowered Fitness Challenge Videos
